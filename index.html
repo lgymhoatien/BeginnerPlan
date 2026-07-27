@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#07090f">
-<title>Kế Hoạch PPL — Tăng Cơ · Giảm Mỡ</title>
+<title>Beginner Plan - Những bài tập dành cho người mới.</title>
 </head>
 <body>
 <!--APP-START-->
@@ -50,7 +50,7 @@ body{
     radial-gradient(56% 20% at 50% -3%, rgba(217,247,74,.09), transparent 70%),
     radial-gradient(42% 16% at 110% 26%, rgba(61,165,255,.06), transparent 70%),
     radial-gradient(48% 18% at -10% 60%, rgba(180,92,255,.055), transparent 70%),
-    var(--bg);
+    transparent;
   padding-bottom:calc(76px + env(safe-area-inset-bottom));
 }
 ::-webkit-scrollbar{width:9px;height:9px}
@@ -69,12 +69,39 @@ input,select{font:inherit}
 
 /* ============ HERO ============ */
 .hero{padding:20px 18px 8px;position:relative}
-.brand{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.brand{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:16px}
 .brand .logo{width:44px;height:44px;display:block;filter:drop-shadow(0 4px 12px rgba(0,0,0,.5))}
 .brand img.logo{object-fit:contain}
 .side-brand{display:none}
 .brand .bt b{display:block;font-size:.95rem;font-weight:900;letter-spacing:.16em;line-height:1.1}
 .brand .bt span{display:block;font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-3);margin-top:2px}
+.gym-info{
+  display:flex;flex-direction:column;gap:9px;width:100%;
+  padding:11px 13px;border-radius:14px;
+  background:linear-gradient(180deg,#1b2030,#12151f);
+  border:1px solid var(--border);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05), 0 8px 18px rgba(0,0,0,.25)
+}
+.brand .gym-info{flex:0 0 100%;margin-top:4px}
+.gym-info .gi-row{
+  display:flex;align-items:flex-start;gap:8px;color:var(--ink-2)!important;text-decoration:none;
+  line-height:1.4;text-transform:none!important;letter-spacing:normal!important;font-weight:500;font-size:.7rem
+}
+.gym-info .gi-row:hover{color:var(--ink)!important}
+.gym-info .gi-row .ic{flex:0 0 auto;margin-top:1px}
+.gym-info .gi-row span{flex:1;text-transform:none!important;letter-spacing:normal!important}
+.gym-info .gi-row:nth-child(1) .ic{color:#d9f74a;filter:drop-shadow(0 0 5px rgba(217,247,74,.7))}
+.gym-info .gi-row:nth-child(2) .ic{color:#4bacff;filter:drop-shadow(0 0 5px rgba(75,172,255,.7))}
+.gym-info .gi-row:nth-child(3) .ic{color:#45e094;filter:drop-shadow(0 0 5px rgba(69,224,148,.7))}
+.gym-info .gi-row:nth-child(1):hover span{color:#f4ff8e;text-shadow:0 0 10px rgba(217,247,74,.55)}
+.gym-info .gi-row:nth-child(2):hover span{color:#9ed1ff;text-shadow:0 0 10px rgba(75,172,255,.55)}
+.gym-info .gi-row:nth-child(3):hover span{color:#8af0c1;text-shadow:0 0 10px rgba(69,224,148,.55)}
+.hero-notes{margin-top:12px;max-width:560px}
+.hero-notes .gi-row{font-size:.7rem}
+.hero-notes .gi-row:nth-child(1) .ic{color:#ffb648;filter:drop-shadow(0 0 5px rgba(255,182,72,.7))}
+.hero-notes .gi-row:nth-child(2) .ic{color:#c3f04c;filter:drop-shadow(0 0 5px rgba(195,240,76,.7))}
+.hero-notes .gi-row:nth-child(1):hover span{color:#ffd08a;text-shadow:0 0 10px rgba(255,182,72,.55)}
+.hero-notes .gi-row:nth-child(2):hover span{color:#e3ffa0;text-shadow:0 0 10px rgba(195,240,76,.55)}
 .hero .eyebrow{
   font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--ink-2)
 }
@@ -157,7 +184,8 @@ input,select{font:inherit}
   border:1px solid color-mix(in srgb, var(--c, #242a3b) 28%, var(--border));
   border-radius:var(--r-md);
   padding:10px 8px 9px;position:relative;overflow:hidden;min-height:96px;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.04)
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+  display:block;width:100%;text-align:left
 }
 .day::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--c,transparent)}
 .day .dn{font-size:.62rem;font-weight:700;letter-spacing:.18em;color:var(--ink-3);text-transform:uppercase}
@@ -524,6 +552,7 @@ input,select{font:inherit}
   .side-brand .logo{width:78px;height:78px;margin-bottom:7px;filter:drop-shadow(0 10px 24px rgba(0,0,0,.55))}
   .side-brand b{font-size:1.08rem;font-weight:900;letter-spacing:.22em}
   .side-brand span{font-size:.58rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-3)}
+  .side-brand .gym-info{margin-top:12px;padding-top:12px;border-top:1px solid var(--border-soft);text-align:left;font-size:.7rem}
   .tab{border-bottom:none;border-radius:14px;padding:12px 15px;font-size:.98rem;gap:12px}
   .tab:hover{background:var(--surface-3)}
   .tab.active{background:var(--accent-soft);color:var(--accent);border-bottom:none}
@@ -536,6 +565,7 @@ input,select{font:inherit}
   .hero .eyebrow{grid-column:2;text-align:right}
   .hero h1{grid-column:2;font-size:2.1rem;text-align:right;justify-self:end}
   .hero .sub{grid-column:2;font-size:.9rem;margin-top:4px;text-align:right}
+  .hero-notes{grid-column:1/-1;grid-row:4;max-width:none;margin-top:18px}
   .btn-gear{display:none}
   .section{padding:8px 0 44px}
   .section h2{font-size:1.95rem}
@@ -586,6 +616,7 @@ input,select{font:inherit}
     <div class="eyebrow">Kế Hoạch</div>
     <h1 id="goalTitle">Tăng Cơ · Giảm Mỡ</h1>
     <div class="sub" id="profileLine"></div>
+    <div class="hero-notes" id="heroNotes"></div>
     <button class="btn-gear" id="btnGear" aria-label="Cài đặt hồ sơ"></button>
   </header>
 
@@ -593,7 +624,7 @@ input,select{font:inherit}
 
   <div class="progress">
     <div class="track"><div class="fill" id="progFill"></div></div>
-    <div class="txt" id="progTxt">0/21 bài</div>
+    <div class="txt" id="progTxt">0/22 bài</div>
   </div>
 
   <nav class="tabs" id="topTabs" role="tablist"></nav>
@@ -863,7 +894,7 @@ const WEEKPLAN = [
 
 const ROADMAP = [
   {w:'W1',   t:'Làm quen kỹ thuật 🎯', d:'Tạ vừa phải, học chuẩn form từng bài; quay video tự kiểm tra tư thế.'},
-  {w:'W2',   t:'Vào guồng 🔄',         d:'Chốt mức tạ khởi điểm cho cả 21 bài; ngủ đủ, ăn đủ protein mỗi ngày.'},
+  {w:'W2',   t:'Vào guồng 🔄',         d:'Chốt mức tạ khởi điểm cho cả 22 bài; ngủ đủ, ăn đủ protein mỗi ngày.'},
   {w:'W3-4', t:'Tăng tải lần 1 📈',    d:'Đạt đủ rep trên ở mọi hiệp → tăng 2,5kg (thân trên) / 5kg (chân).'},
   {w:'W5-6', t:'Tăng tải lần 2 🚀',    d:'Tiếp tục double progression; kẹt 3 buổi liên tiếp → giảm 10% rồi leo lại.'},
   {w:'W7',   t:'Deload 😌',            d:'Giảm 40–50% số hiệp, giữ kỹ thuật — cho khớp và thần kinh hồi phục sâu.'},
@@ -916,22 +947,27 @@ const VIDEOS = {
 }));
 
 /* MuscleWiki đặt tên file không nhất quán (male-Cables-cable-x vs male-cable-x).
-   Sinh danh sách URL ứng viên rồi thử lần lượt, hỏng hết mới hiện hộp link. */
+   Sinh danh sách URL ứng viên rồi thử lần lượt, hỏng hết mới hiện hộp link.
+   Hồ sơ chọn "Nữ" thì ưu tiên thử toàn bộ biến thể female- trước, không có mới rơi về male-
+   (MuscleWiki không quay đủ model nữ cho mọi bài, nên male- luôn là lưới an toàn cuối cùng). */
 const EQ_PREFIX = {
   cable:['Cables','Cable'], dumbbell:['Dumbbells','Dumbbell'], barbell:['Barbell','Barbells'],
   machine:['Machine','Machines'], bodyweight:['Bodyweight'], smith:['Smithmachine','Smith'],
   kettlebell:['Kettlebells','Kettlebell'], band:['Bands','Band']
 };
 function vidCandidates(url){
-  const out = [url];
   const m = String(url).match(/^(.*\/)male-(.+?)(-front|-side)\.mp4$/);
-  if(!m) return out;
+  if(!m) return [url];
   const base = m[1], body = m[2], ang = m[3];
-  const add = s=>{ const u = base+'male-'+s+ang+'.mp4'; if(out.indexOf(u)<0) out.push(u); };
+  const bodies = [body];
+  const addBody = s=>{ if(bodies.indexOf(s)<0) bodies.push(s); };
   const stripped = body.replace(/^[A-Z][A-Za-z]*-/,'');
-  if(stripped !== body) add(stripped);
-  (EQ_PREFIX[stripped.split('-')[0].toLowerCase()]||[]).forEach(p=>add(p+'-'+stripped));
-  add(body.toLowerCase());
+  if(stripped !== body) addBody(stripped);
+  (EQ_PREFIX[stripped.split('-')[0].toLowerCase()]||[]).forEach(p=>addBody(p+'-'+stripped));
+  addBody(body.toLowerCase());
+  const genders = profile.s==='f' ? ['female','male'] : ['male'];
+  const out = [];
+  genders.forEach(g=>bodies.forEach(b=>{ const u = base+g+'-'+b+ang+'.mp4'; if(out.indexOf(u)<0) out.push(u); }));
   return out;
 }
 function mountVideos(box, onAllDead){
@@ -1012,8 +1048,8 @@ const EXTRA_VARIANTS = {
     "fatloss": "3 × 12-15",
     "restSec": 90,
     "tip": "Chỉnh ghế thẳng dưới thanh đòn. Hạ thanh đòn chạm ngực giữa và đẩy lên. An toàn hơn khi tập nặng một mình.",
-    "video": "https://media.musclewiki.com/media/uploads/videos/branded/male-Smith-smith-machine-bench-press-front.mp4",
-    "videoSide": "https://media.musclewiki.com/media/uploads/videos/branded/male-Smith-smith-machine-bench-press-side.mp4"
+    "video": "https://media.musclewiki.com/media/uploads/videos/branded/male-Smithmachine-bench-press-front.mp4",
+    "videoSide": "https://media.musclewiki.com/media/uploads/videos/branded/male-Smithmachine-bench-press-side.mp4"
    }
   ],
   "1": [
@@ -1284,24 +1320,6 @@ const EXTRA_VARIANTS = {
     "tip": "Giữ thân người thẳng đứng, khuỷu tay ép sát người để dồn lực vào tay sau thay vì ngực. Bài này tác động mạnh vào đầu ngoài (lateral head) và đầu trong (medial head) của cơ tam đầu.",
     "video": "https://media.musclewiki.com/media/uploads/videos/branded/male-Bodyweight-parralel-bar-dips-front.mp4",
     "videoSide": "https://media.musclewiki.com/media/uploads/videos/branded/male-Bodyweight-parralel-bar-dips-side.mp4"
-   },
-   {
-    "nameEn": "Rope Triceps Pushdown",
-    "nameVi": "Kéo cáp tay sau bằng dây thừng",
-    "short": "Dây thừng",
-    "equipment": "Cable",
-    "primary": [
-     "triceps"
-    ],
-    "secondary": [
-     "forearms"
-    ],
-    "hypertrophy": "3 × 10-12",
-    "fatloss": "3 × 12-15",
-    "restSec": 60,
-    "tip": "Khi kéo xuống dưới cùng, tách hai đầu dây sang hai bên để ép tối đa cơ tay sau (chủ yếu lateral và medial head).",
-    "video": "https://media.musclewiki.com/media/uploads/videos/branded/male-cable-rope-tricep-pushdown-front.mp4",
-    "videoSide": "https://media.musclewiki.com/media/uploads/videos/branded/male-cable-rope-tricep-pushdown-side.mp4"
    }
   ],
   "7": [
@@ -1681,7 +1699,7 @@ const EXTRA_VARIANTS = {
     "tip": "Giữ tạ sát ngực, khuỷu tay hướng xuống, ngồi sâu giữa hai gót chân.",
     "video": "https://media.musclewiki.com/media/uploads/videos/branded/male-dumbbell-goblet-squat-front.mp4",
     "videoSide": "https://media.musclewiki.com/media/uploads/videos/branded/male-dumbbell-goblet-squat-side.mp4",
-    "page": "https://musclewiki.com/exercises/dumbbell-goblet-squat"
+    "page": "https://musclewiki.com/exercise/dumbbell-goblet-squat"
    },
    {
     "nameEn": "Machine Hack Squat",
@@ -1701,7 +1719,7 @@ const EXTRA_VARIANTS = {
     "tip": "Lưng và hông áp sát đệm, hạ sâu có kiểm soát rồi đạp đều qua cả bàn chân.",
     "video": "https://media.musclewiki.com/media/uploads/videos/branded/male-Machine-machine-hack-squat-front.mp4",
     "videoSide": "https://media.musclewiki.com/media/uploads/videos/branded/male-Machine-machine-hack-squat-side.mp4",
-    "page": "https://musclewiki.com/exercises/machine-hack-squat"
+    "page": "https://musclewiki.com/exercise/machine-hack-squat"
    }
   ],
   "1": [
@@ -1724,7 +1742,7 @@ const EXTRA_VARIANTS = {
     "tip": "Đẩy hông ra sau, lưng thẳng, tạ trượt sát đùi đến khi căng đùi sau rồi siết mông đứng lên.",
     "video": "https://media.musclewiki.com/media/uploads/videos/branded/male-Dumbbells-dumbbell-romanian-deadlift-front.mp4",
     "videoSide": "https://media.musclewiki.com/media/uploads/videos/branded/male-Dumbbells-dumbbell-romanian-deadlift-side.mp4",
-    "page": "https://musclewiki.com/exercises/dumbbell-romanian-deadlift"
+    "page": "https://musclewiki.com/exercise/dumbbell-romanian-deadlift"
    },
    {
     "nameEn": "Cable Pull Through",
@@ -1744,7 +1762,7 @@ const EXTRA_VARIANTS = {
     "tip": "Gập hông ra sau, tay chỉ giữ dây, siết mông mạnh khi đứng thẳng, không kéo bằng lưng.",
     "video": "https://media.musclewiki.com/media/uploads/videos/branded/male-Cables-cable-pull-through-front.mp4",
     "videoSide": "https://media.musclewiki.com/media/uploads/videos/branded/male-Cables-cable-pull-through-side.mp4",
-    "page": "https://musclewiki.com/exercises/cable-pull-through"
+    "page": "https://musclewiki.com/exercise/cable-pull-through"
    }
   ],
   "2": [
@@ -1767,7 +1785,7 @@ const EXTRA_VARIANTS = {
     "tip": "Chân sau gác lên ghế, thân hơi nghiêng trước, hạ thẳng xuống bằng lực chân trước.",
     "video": "https://media.musclewiki.com/media/uploads/videos/branded/male-Dumbbells-dumbbell-bulgarian-split-squat-front.mp4",
     "videoSide": "https://media.musclewiki.com/media/uploads/videos/branded/male-Dumbbells-dumbbell-bulgarian-split-squat-side.mp4",
-    "page": "https://musclewiki.com/exercises/dumbbell-bulgarian-split-squat"
+    "page": "https://musclewiki.com/exercise/dumbbell-bulgarian-split-squat"
    },
    {
     "nameEn": "Dumbbell Forward Lunge",
@@ -1787,7 +1805,7 @@ const EXTRA_VARIANTS = {
     "tip": "Bước dài vừa phải, gối trước thẳng hàng mũi chân, đạp gót chân trước để về vị trí đầu.",
     "video": "https://media.musclewiki.com/media/uploads/videos/branded/male-Dumbbells-dumbbell-forward-lunge-front.mp4",
     "videoSide": "https://media.musclewiki.com/media/uploads/videos/branded/male-Dumbbells-dumbbell-forward-lunge-side.mp4",
-    "page": "https://musclewiki.com/exercises/dumbbell-forward-lunge"
+    "page": "https://musclewiki.com/exercise/dumbbell-forward-lunge"
    },
    {
     "nameEn": "Split Squat",
@@ -1807,7 +1825,7 @@ const EXTRA_VARIANTS = {
     "tip": "Hai chân trước sau cố định, hạ gối sau gần chạm sàn, thân giữ thẳng đứng.",
     "video": "https://media.musclewiki.com/media/uploads/videos/branded/male-bodyweight-split-squat-front.mp4",
     "videoSide": "https://media.musclewiki.com/media/uploads/videos/branded/male-bodyweight-split-squat-side.mp4",
-    "page": "https://musclewiki.com/exercises/split-squat"
+    "page": "https://musclewiki.com/exercise/split-squat"
    }
   ],
   "3": [
@@ -1829,7 +1847,7 @@ const EXTRA_VARIANTS = {
     "tip": "Đặt tạ lên hông, tựa lưng vào ghế, siết mông đẩy hông lên cao và khóa đỉnh 1 giây.",
     "video": "https://media.musclewiki.com/media/uploads/videos/branded/male-Dumbbells-dumbbell-hip-thrust-front.mp4",
     "videoSide": "https://media.musclewiki.com/media/uploads/videos/branded/male-Dumbbells-dumbbell-hip-thrust-side.mp4",
-    "page": "https://musclewiki.com/exercises/dumbbell-hip-thrust"
+    "page": "https://musclewiki.com/exercise/dumbbell-hip-thrust"
    },
    {
     "nameEn": "Cable Glute Kickback",
@@ -1848,7 +1866,7 @@ const EXTRA_VARIANTS = {
     "tip": "Thân hơi nghiêng trước, đá chân ra sau bằng lực mông, không võng lưng dưới.",
     "video": "https://media.musclewiki.com/media/uploads/videos/branded/male-Cables-cable-glute-kickback-front.mp4",
     "videoSide": "https://media.musclewiki.com/media/uploads/videos/branded/male-Cables-cable-glute-kickback-side.mp4",
-    "page": "https://musclewiki.com/exercises/cable-standing-straight-leg-glute-glute-kickback"
+    "page": "https://musclewiki.com/exercise/cable-standing-straight-leg-glute-glute-kickback"
    }
   ],
   "4": [
@@ -1869,7 +1887,7 @@ const EXTRA_VARIANTS = {
     "tip": "Đệm chặn sát trên gót, cuốn hết biên độ rồi thả chậm, giữ mông không nhấc khỏi ghế.",
     "video": "https://media.musclewiki.com/media/uploads/videos/branded/male-Machine-machine-seated-leg-curl-front.mp4",
     "videoSide": "https://media.musclewiki.com/media/uploads/videos/branded/male-Machine-machine-seated-leg-curl-side.mp4",
-    "page": "https://musclewiki.com/exercises/machine-seated-leg-curl"
+    "page": "https://musclewiki.com/exercise/machine-seated-leg-curl"
    },
    {
     "nameEn": "Nordic Hamstring Curl",
@@ -1889,7 +1907,7 @@ const EXTRA_VARIANTS = {
     "tip": "Cố định gót chân chắc chắn, hạ người về trước thật chậm, dùng đùi sau hãm chuyển động.",
     "video": "https://media.musclewiki.com/media/uploads/videos/branded/male-Bodyweight-nordic-hamstring-curl-front.mp4",
     "videoSide": "https://media.musclewiki.com/media/uploads/videos/branded/male-Bodyweight-nordic-hamstring-curl-side.mp4",
-    "page": "https://musclewiki.com/exercises/nordic-hamstring-curl"
+    "page": "https://musclewiki.com/exercise/nordic-hamstring-curl"
    }
   ],
   "5": [
@@ -1908,7 +1926,7 @@ const EXTRA_VARIANTS = {
     "tip": "Đặt tạ trên gối, hạ gót thấp hết cỡ để căng cơ rồi nhón lên cao, dừng 1 giây trên đỉnh.",
     "video": "https://media.musclewiki.com/media/uploads/videos/branded/male-barbell-seated-calf-raise-front.mp4",
     "videoSide": "https://media.musclewiki.com/media/uploads/videos/branded/male-barbell-seated-calf-raise-side.mp4",
-    "page": "https://musclewiki.com/exercises/barbell-seated-calf-raise"
+    "page": "https://musclewiki.com/exercise/barbell-seated-calf-raise"
    },
    {
     "nameEn": "Dumbbell Calf Raise",
@@ -1925,7 +1943,7 @@ const EXTRA_VARIANTS = {
     "tip": "Đứng mũi chân trên bục, hạ gót sâu cảm nhận căng bắp chuối, nhón lên hết biên độ.",
     "video": "https://media.musclewiki.com/media/uploads/videos/branded/male-Dumbbells-dumbbell-calf-raise-front.mp4",
     "videoSide": "https://media.musclewiki.com/media/uploads/videos/branded/male-Dumbbells-dumbbell-calf-raise-side.mp4",
-    "page": "https://musclewiki.com/exercises/dumbbell-calf-raise"
+    "page": "https://musclewiki.com/exercise/dumbbell-calf-raise"
    }
   ],
   "6": [
@@ -1946,7 +1964,7 @@ const EXTRA_VARIANTS = {
     "tip": "Cuộn tròn lưng trên bằng cơ bụng, giữ hông cố định, không kéo bằng tay.",
     "video": "https://media.musclewiki.com/media/uploads/videos/branded/male-Cables-cable-kneeling-crunch-front.mp4",
     "videoSide": "https://media.musclewiki.com/media/uploads/videos/branded/male-Cables-cable-kneeling-crunch-side.mp4",
-    "page": "https://musclewiki.com/exercises/cable-row-bar-kneeling-crunch"
+    "page": "https://musclewiki.com/exercise/cable-kneeling-crunch"
    },
    {
     "nameEn": "Forearm Plank",
@@ -1965,7 +1983,7 @@ const EXTRA_VARIANTS = {
     "tip": "Siết chặt bụng và mông, giữ thân thẳng từ đầu tới gót, không võng lưng dưới.",
     "video": "https://media.musclewiki.com/media/uploads/videos/branded/male-bodyweight-forearm-plank-front.mp4",
     "videoSide": "https://media.musclewiki.com/media/uploads/videos/branded/male-bodyweight-forearm-plank-side.mp4",
-    "page": "https://musclewiki.com/exercises/forearm-plank"
+    "page": "https://musclewiki.com/exercise/forearm-plank"
    }
   ]
  }
@@ -1975,6 +1993,16 @@ const EXTRA_VARIANTS = {
   DATA[k] = DATA[k].map((ex,i)=>({
     name: SLOT_NAMES[k][i],
     variants: [ex].concat(EXTRA_VARIANTS[k][i] || [])
+  }));
+});
+
+/* biến thể nào thiếu link page thì tự suy slug từ URL video */
+['push','pull','legs'].forEach(k=>{
+  DATA[k].forEach(slot=>slot.variants.forEach(v=>{
+    if(!v.page && v.video){
+      const m = String(v.video).match(/male-(?:[A-Z][A-Za-z]*-)?(.+?)-(?:front|side)\.mp4$/);
+      if(m) v.page = 'https://musclewiki.com/exercise/' + m[1];
+    }
   }));
 });
 
@@ -2006,6 +2034,7 @@ const SESSIONS = {
     4,
     1,
     0,
+    3,
     5,
     2,
     6,
@@ -2094,6 +2123,37 @@ const SESSIONS = {
   }
  }
 };
+/* Tự kiểm tính toàn vẹn dữ liệu lúc boot — lỗi chỉ cảnh báo ra console, không chặn app.
+   Chính nhờ phép kiểm "order phải là hoán vị đủ mọi slot" mà lỗi kiểu push.s2 thiếu bài sẽ lộ ra ngay. */
+(function(){
+  const warn = (m)=>console.warn('[PPL data] ' + m);
+  ['push','pull','legs'].forEach(k=>{
+    const n = DATA[k].length;
+    if(SLOT_NAMES[k].length !== n) warn(`SLOT_NAMES.${k} có ${SLOT_NAMES[k].length} tên nhưng DATA.${k} có ${n} slot`);
+    Object.keys(EXTRA_VARIANTS[k]||{}).forEach(key=>{
+      const i = +key;
+      if(!Number.isInteger(i) || i<0 || i>=n) warn(`EXTRA_VARIANTS.${k}["${key}"] trỏ ra ngoài 0..${n-1}`);
+    });
+    ['s1','s2'].forEach(ses=>{
+      const S = SESSIONS[k] && SESSIONS[k][ses];
+      if(!S){ warn(`SESSIONS.${k}.${ses} không tồn tại`); return; }
+      const seen = new Set(S.order);
+      if(S.order.length !== n || seen.size !== n || [...seen].some(i=>!Number.isInteger(i)||i<0||i>=n))
+        warn(`SESSIONS.${k}.${ses}.order không phải hoán vị đủ của 0..${n-1}: [${S.order}]`);
+      Object.keys(S.schemes||{}).forEach(key=>{ if(!seen.has(+key)) warn(`SESSIONS.${k}.${ses}.schemes["${key}"] không nằm trong order`); });
+    });
+    DATA[k].forEach((slot,i)=>{
+      const shorts = new Set();
+      slot.variants.forEach(v=>{
+        ['nameEn','nameVi','equipment','hypertrophy','fatloss','restSec','tip'].forEach(f=>{ if(v[f]==null) warn(`${k}[${i}] "${v.nameEn||'?'}" thiếu trường ${f}`); });
+        (v.primary||[]).concat(v.secondary||[]).forEach(m=>{ if(!MUSCLE_VI[m]) warn(`${k}[${i}] "${v.nameEn}" dùng tên cơ lạ "${m}"`); });
+        const sh = v.short || v.equipment;
+        if(shorts.has(sh)) warn(`${k}[${i}] có hai biến thể cùng nhãn chip "${sh}"`);
+        shorts.add(sh);
+      });
+    });
+  });
+})();
 /* ================= ANATOMY FIGURE (SVG, mirror qua trục x=60, viewBox 120×240) ================= */
 const FIG = {
   front: {
@@ -2611,7 +2671,9 @@ const ICONS = {
   upload:'<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>',
   users:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
   trash:'<polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/>',
-  star:'<polygon points="12 2 15.1 8.6 22 9.6 17 14.5 18.2 21.4 12 18.1 5.8 21.4 7 14.5 2 9.6 8.9 8.6 12 2"/>'
+  star:'<polygon points="12 2 15.1 8.6 22 9.6 17 14.5 18.2 21.4 12 18.1 5.8 21.4 7 14.5 2 9.6 8.9 8.6 12 2"/>',
+  pin:'<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/>',
+  facebook:'<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>'
 };
 function ico(name, size){
   size = size || 18;
@@ -2634,6 +2696,31 @@ function logoHtml(size){
   </svg>`;
 }
 
+/* ================= THÔNG TIN PHÒNG GYM ================= */
+const GYM_INFO = {
+  address: 'Đối diện Trạm Y Tế xã Hòa Tiến (hoặc gõ "L GYM" trên app Google Maps)',
+  mapsUrl: 'https://maps.app.goo.gl/QSapkewxS9kNNXWB9?g_st=ic',
+  fbUrl: 'https://www.facebook.com/lgymhoatien',
+  hours: 'Sáng 5h–8h · Chiều 15h–20h · Chủ nhật nghỉ'
+};
+function gymInfoHtml(){
+  return `<div class="gym-info">
+    <a class="gi-row" href="${GYM_INFO.mapsUrl}" target="_blank" rel="noopener">${ico('pin',14)}<span>${esc(GYM_INFO.address)}</span></a>
+    <div class="gi-row">${ico('clock',14)}<span>${esc(GYM_INFO.hours)}</span></div>
+    <a class="gi-row" href="${GYM_INFO.fbUrl}" target="_blank" rel="noopener">${ico('facebook',14)}<span>Facebook L GYM</span></a>
+  </div>`;
+}
+
+/* ================= GHI CHÚ DƯỚI HERO (miễn trừ trách nhiệm + gợi ý chọn giới tính) ================= */
+function heroNotesHtml(){
+  const disclaimer = 'Nội dung trong app chỉ mang tính tham khảo, được tổng hợp từ các nguồn huấn luyện phổ biến — không thay thế chỉ định của huấn luyện viên hoặc bác sĩ. Bạn có thể áp dụng hoặc bỏ qua nếu thấy không phù hợp với thể trạng, chấn thương cũ hoặc mục tiêu của mình. Mình sẽ không chịu trách nhiệm cho bất kỳ chấn thương hay vấn đề sức khỏe nào phát sinh trong quá trình tập luyện.';
+  const genderTip = `Vào ${ico('sliders',12)} <b>Cài đặt</b> chọn giới tính <b>Nam</b> / <b>Nữ</b> để video minh họa và mức rep gợi ý phù hợp hơn với bạn.`;
+  return `<div class="gym-info hero-notes">
+    <div class="gi-row">${ico('info',14)}<span>${esc(disclaimer)}</span></div>
+    <div class="gi-row">${ico('users',14)}<span>${genderTip}</span></div>
+  </div>`;
+}
+
 /* defs dùng chung cho mọi svg trong trang */
 document.body.insertAdjacentHTML('afterbegin', `
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -2650,14 +2737,32 @@ document.body.insertAdjacentHTML('afterbegin', `
 
 /* ================= STATE ================= */
 const store = {
-  get(k,d){ try{ const v = localStorage.getItem('ppl.'+k); return v==null? d : JSON.parse(v); }catch(e){ return d; } },
+  get(k,d){ try{ const v = localStorage.getItem('ppl.'+k); if(v==null) return d; const p = JSON.parse(v); return p==null? d : p; }catch(e){ return d; } },
   set(k,v){ try{ localStorage.setItem('ppl.'+k, JSON.stringify(v)); }catch(e){} }
 };
-let profile = Object.assign({name:'',h:180,w:75,a:22,s:'m',act:1.375,time:'05:00',goal:'recomp'}, store.get('profile',{}));
+/* ép kiểu + kẹp dải giá trị cho mọi hồ sơ đến từ localStorage / file import */
+function sanitizeProfile(p){
+  const num = (v,d,lo,hi)=>{ v = +v; return Number.isFinite(v) ? Math.min(hi, Math.max(lo, v)) : d; };
+  return {
+    name: String(p.name||'').slice(0,60),
+    h: num(p.h,180,120,230), w: num(p.w,75,30,200), a: num(p.a,22,13,90),
+    s: p.s==='f' ? 'f' : 'm',
+    act: num(p.act,1.375,1,2.5),
+    time: /^\d{1,2}:\d{2}$/.test(p.time) ? p.time : '05:00',
+    goal: GOALS.some(g=>g.id===p.goal) ? p.goal : 'recomp'
+  };
+}
+let profile = sanitizeProfile(Object.assign({name:'',h:180,w:75,a:22,s:'m',act:1.375,time:'05:00',goal:'recomp'}, store.get('profile',{})));
 let checks  = store.get('checks', {week:'', done:{}});
 let exW     = store.get('exw', {});
 let vsel    = store.get('vsel', {});
-let groupSession = {};
+/* lựa chọn Buổi 1/Buổi 2 thủ công chỉ giữ trong ngày; qua ngày mới quay về buổi tự động theo thứ */
+let groupSession = (function(){
+  const gs = store.get('gses', null);
+  const today = new Date().toISOString().slice(0,10);
+  return (gs && gs.date === today) ? gs : {date: today};
+})();
+function saveGroupSession(){ store.set('gses', groupSession); }
 /* di trú mức tạ cũ (theo slot) sang key mới (slot + biến thể 0) */
 (function(){
   let moved = false;
@@ -2710,7 +2815,7 @@ function isoWeek(d){
 function rolloverWeek(){
   const wk = isoWeek(new Date());
   if(checks.week !== wk){
-    if(checks.week){ weekHist[checks.week] = Object.keys(checks.done).length; store.set('history', weekHist); }
+    if(checks.week){ weekHist[checks.week] = {done: Object.keys(checks.done).length, total: totalEx(), at: Date.now()}; store.set('history', weekHist); }
     checks = {week:wk, done:{}};
     store.set('checks', checks);
   }
@@ -2723,7 +2828,7 @@ function calc(who){
   const bmi = p.w / Math.pow(p.h/100, 2);
   const bmr = p.s==='m' ? 10*p.w + 6.25*p.h - 5*p.a + 5 : 10*p.w + 6.25*p.h - 5*p.a - 161;
   const tdee = bmr * p.act;
-  const goal = GOALS.find(g=>g.id===p.goal) || GOALS[0];
+  const goal = GOALS.find(g=>g.id===p.goal) || GOALS.find(g=>g.id==='recomp') || GOALS[0];
   const kcal = Math.round(tdee * (1 + goal.calorieAdjustPct/100) / 50) * 50;
   const pro = Math.round(p.w * goal.proteinGPerKg / 5) * 5;
   const fat = Math.round(p.w * goal.fatGPerKg);
@@ -2732,14 +2837,27 @@ function calc(who){
   if(bmi < 18.5) bmiTag = 'Thiếu cân'; else if(bmi >= 25) bmiTag = 'Thừa cân'; else if(bmi >= 23) bmiTag = 'Hơi dư';
   return {bmi:+bmi.toFixed(1), bmiTag, bmr:R(bmr), tdee:R(tdee), kcal, pro, fat, carb, goal};
 }
-function repsOf(ex, goal){ return goal.repMode==='fatloss' ? ex.fatloss : ex.hypertrophy; }
+/* Nữ giới có tỉ lệ sợi cơ loại I cao hơn nên chịu mệt tốt hơn ở cùng %1RM (meta-regression
+   Refalo et al. 2023, PMC10933212) — nới nhẹ mép trên rep range +2 cho bài isolation.
+   Không áp cho compound nặng (restSec>=120s: Squat/Deadlift/Bench...) vì đó cần chuẩn kỹ thuật/sức mạnh,
+   khác biệt giới tính ở đây không đủ lớn để đổi rep range. Không áp cho bài giữ theo giây (Plank...). */
+function femaleAdjustReps(scheme, ex){
+  if(!scheme || ex.restSec>=120) return scheme;
+  const m = String(scheme).match(/^(\d+)\s*×\s*(\d+)-(\d+)(.*)$/);
+  if(!m || /giây/.test(m[4])) return scheme;
+  return `${m[1]} × ${m[2]}-${+m[3]+2}${m[4]}`;
+}
+function repsOf(ex, goal){
+  const scheme = goal.repMode==='fatloss' ? ex.fatloss : ex.hypertrophy;
+  return profile.s==='f' ? femaleAdjustReps(scheme, ex) : scheme;
+}
 function restOf(ex, goal){ return goal.repMode==='fatloss' ? (ex.restSec>=120? 120 : 60) : ex.restSec; }
 function fmtRest(s){ return s>=60 ? (s%60===0? (s/60)+' phút' : Math.floor(s/60)+'p'+(s%60)) : s+' giây'; }
 
 /* ================= HELPERS ================= */
 const $  = (q)=>document.querySelector(q);
 const $$ = (q)=>document.querySelectorAll(q);
-function esc(s){ return String(s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function esc(s){ return String(s).replace(/[&<>"'`]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;','`':'&#96;'}[c])); }
 let toastT = null;
 function toast(msg){
   const t = $('#toast'); t.textContent = msg; t.classList.add('show');
@@ -2768,25 +2886,42 @@ function updateSideStats(){
   $('#ssToday').textContent = td.rest ? 'Hôm nay: nghỉ / cardio nhẹ 😌' : 'Hôm nay: ' + td.title + ' lúc ' + profile.time + ' ⏰';
 }
 function renderTabs(){
-  $('#topTabs').innerHTML = `<div class="side-brand">${logoHtml(78)}<b>L&nbsp;GYM</b><span>Beginner Plan</span></div>` + TABS.map(t=>`
+  $('#topTabs').innerHTML = `<div class="side-brand">${logoHtml(78)}<b>L&nbsp;GYM</b><span>Beginner Plan</span>${gymInfoHtml()}</div>` + TABS.map(t=>`
     <button class="tab${t.id===curTab?' active':''}" data-tab="${t.id}" role="tab" aria-selected="${t.id===curTab}">
       ${t.dot? `<span class="dot ${t.dot}"></span>` : ico(t.icon,16)}<span class="lbl">${t.label}</span><span class="lbld">${t.desk}</span>
     </button>`).join('')
     + `<div class="side-stats"><div class="ss-top"><span>Tuần này 💪</span><b id="ssCount">–</b></div><div class="ss-track"><div class="ss-fill" id="ssFill"></div></div><div class="ss-today" id="ssToday"></div></div>`
     + `<button class="tab side-settings" data-open-settings="1">${ico('sliders',17)}<span class="lbld">Cài đặt</span></button>`;
   $('#botNav').innerHTML = TABS.map(t=>`
-    <button class="${t.id===curTab?'active':''}" data-tab="${t.id}">
+    <button class="${t.id===curTab?'active':''}" data-tab="${t.id}"${t.id===curTab?' aria-current="page"':''}>
       <span class="niw">${t.dot? `<span class="nd ${t.dot}"></span>` : ico(t.icon,17)}</span><span class="lbl">${t.label}</span>
     </button>`).join('');
   updateSideStats();
 }
-function switchTab(id){
+/* đổi tab chỉ toggle class trên nav sẵn có — không rebuild innerHTML (đỡ dựng lại logo ~29KB, giữ focus bàn phím) */
+function markActiveTab(){
+  $$('#topTabs .tab[data-tab]').forEach(b=>{
+    const on = b.dataset.tab === curTab;
+    b.classList.toggle('active', on);
+    b.setAttribute('aria-selected', on);
+  });
+  $$('#botNav [data-tab]').forEach(b=>{
+    const on = b.dataset.tab === curTab;
+    b.classList.toggle('active', on);
+    if(on) b.setAttribute('aria-current','page'); else b.removeAttribute('aria-current');
+  });
+}
+function switchTab(id, fromHistory){
   curTab = id;
-  if(history.replaceState) history.replaceState(null,'','#'+id);
+  if(!fromHistory && location.hash !== '#'+id) history.pushState(null,'','#'+id);
   $$('.section').forEach(s=>s.classList.toggle('active', s.id === 'sec-'+id));
-  renderTabs();
+  markActiveTab();
   window.scrollTo({top:0, behavior:'smooth'});
 }
+window.addEventListener('popstate', ()=>{
+  const h = location.hash.replace('#','');
+  if(TABS.some(t=>t.id===h) && h !== curTab) switchTab(h, true);
+});
 document.addEventListener('click', e=>{
   const tb = e.target.closest('[data-tab]');
   if(tb) switchTab(tb.dataset.tab);
@@ -2806,14 +2941,16 @@ function decoClock(col){
 }
 function decoBmi(bmi){
   const pos = Math.max(0, Math.min(1, (bmi-15)/20));
-  return `<svg viewBox="0 0 84 16" width="84" height="16" aria-hidden="true"><defs><linearGradient id="bmiG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4bacff"/><stop offset=".3" stop-color="#45e094"/><stop offset=".55" stop-color="#d9f74a"/><stop offset=".78" stop-color="#ffb648"/><stop offset="1" stop-color="#ff4d5e"/></linearGradient></defs><rect x="2" y="5.5" width="80" height="5" rx="2.5" fill="url(#bmiG)"/><circle cx="${(2+80*pos).toFixed(1)}" cy="8" r="4" fill="#fff" stroke="#0a0c14" stroke-width="1.6"/></svg>`;
+  const gid = 'bmiG' + (decoBmi._n = (decoBmi._n||0)+1);
+  return `<svg viewBox="0 0 84 16" width="84" height="16" aria-hidden="true"><defs><linearGradient id="${gid}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4bacff"/><stop offset=".3" stop-color="#45e094"/><stop offset=".55" stop-color="#d9f74a"/><stop offset=".78" stop-color="#ffb648"/><stop offset="1" stop-color="#ff4d5e"/></linearGradient></defs><rect x="2" y="5.5" width="80" height="5" rx="2.5" fill="url(#${gid})"/><circle cx="${(2+80*pos).toFixed(1)}" cy="8" r="4" fill="#fff" stroke="#0a0c14" stroke-width="1.6"/></svg>`;
 }
 function renderHero(){
   const c = calc();
   $('#heroGreet').innerHTML = `Chào, <b>${esc(profile.name || 'bạn')}</b>! 👋`;
   $('#goalTitle').textContent = c.goal.nameVi;
   $('#profileLine').innerHTML =
-    `<b>${profile.h}cm</b> · <b>${profile.w}kg</b> · PPL 6 buổi/tuần · Tập sáng <b>${esc(profile.time)}</b>`;
+    `<b>${esc(profile.h)}cm</b> · <b>${esc(profile.w)}kg</b> · PPL 6 buổi/tuần · Tập sáng <b>${esc(profile.time)}</b>`;
+  $('#heroNotes').innerHTML = heroNotesHtml();
   const tiles = [
     {cls:'st-kcal', ic:'flame',    v:c.kcal.toLocaleString('vi-VN'), l:'kcal/ngày',            deco:decoSpark('#d9f74a')},
     {cls:'st-pro',  ic:'utensils', v:c.pro+'g',                      l:'protein',              deco:decoBars('#45e094')},
@@ -2850,12 +2987,12 @@ function renderLich(){
       </div>`;
     const g = GROUPS[d.key];
     return `
-      <div class="day${i===ti?' today':''}" style="--c:${g.hex}" data-tab="${d.key}" role="button" tabindex="0">
+      <button class="day${i===ti?' today':''}" type="button" style="--c:${g.hex}" data-tab="${d.key}">
         <div class="dn">${d.dn}</div>
         <div class="t">${d.title}</div>
         <div class="m">${d.m}</div>
         <div class="al">${ico('clock',11)} ${esc(profile.time)}</div>
-      </div>`;
+      </button>`;
   }).join('');
   const orbs = ['push','pull','legs'].map(k=>{
     const g = GROUPS[k];
@@ -2880,8 +3017,9 @@ function renderLich(){
     </div>`;
 }
 function endTime(){
-  const [h,m] = (profile.time||'05:00').split(':').map(Number);
-  const t = h*60+m+90; return String(Math.floor(t/60)%24).padStart(1,'0') + ':' + String(t%60).padStart(2,'0');
+  let [h,m] = (profile.time||'05:00').split(':').map(Number);
+  if(!Number.isFinite(h)||!Number.isFinite(m)){ h=5; m=0; }
+  const t = h*60+m+90; return String(Math.floor(t/60)%24).padStart(2,'0') + ':' + String(t%60).padStart(2,'0');
 }
 
 /* ================= RENDER: NHÓM (push/pull/legs) ================= */
@@ -2909,7 +3047,8 @@ function renderGroup(key){
     const wkey = id + 'v' + vi;
     const last = exW[wkey];
     const rest = restOf(ex, goal);
-    const scheme = (goal.repMode!=='fatloss' && S.schemes[si]) ? S.schemes[si] : repsOf(ex, goal);
+    /* scheme sức mạnh theo buổi chỉ áp cho biến thể gốc; biến thể máy/cáp dùng rep range riêng của nó */
+    const scheme = (goal.repMode!=='fatloss' && vi===0 && S.schemes[si]) ? S.schemes[si] : repsOf(ex, goal);
     const vchips = slot.variants.length>1 ? `
       <div class="vchips">${slot.variants.map((v,i)=>
         `<button class="vchip${i===vi?' on':''}" data-var="${id}" data-vi="${i}" title="${esc(v.nameVi)}">${esc(v.short || eqShort(v.equipment))}</button>`).join('')}
@@ -2945,8 +3084,8 @@ function renderGroup(key){
         <button class="btn-timer" data-vid="${id}" style="color:var(--ink)">${ico('play',13)} Cách tập</button>
         <button class="btn-timer" data-timer="${rest}" data-name="${esc(ex.nameVi)}">${ico('clock',13)} Nghỉ ${fmtRest(rest)}</button>
         <div class="wlog">
-          <span class="last">${last? `Lần trước: <b>${last}kg</b>` : 'Chưa có mức tạ'}</span>
-          <input type="number" inputmode="decimal" placeholder="kg" data-w="${wkey}" aria-label="Mức tạ (kg)">
+          <span class="last">${last != null ? `Lần trước: <b>${last}kg</b>` : 'Chưa có mức tạ'}</span>
+          <input type="number" inputmode="decimal" placeholder="kg" min="0" step="0.5" data-w="${wkey}" aria-label="Mức tạ (kg)">
         </div>
       </div>
       <div class="exvideo" id="vid-${id}" hidden></div>
@@ -3023,7 +3162,9 @@ document.addEventListener('click', e=>{
   const sp = e.target.closest('[data-ses]');
   if(sp){
     groupSession[sp.dataset.ses] = sp.dataset.s;
+    saveGroupSession();
     renderGroup(sp.dataset.ses);
+    renderProgress();
   }
   const vb = e.target.closest('[data-vid]');
   if(vb){
@@ -3067,14 +3208,14 @@ document.addEventListener('click', e=>{
 });
 document.addEventListener('change', e=>{
   const w = e.target.closest('[data-w]');
-  if(w && w.value){
+  if(w && w.value !== '' && Number.isFinite(+w.value) && +w.value >= 0){
     const id = w.dataset.w;
     const prev = exW[id];
     exW[id] = +w.value;
     store.set('exw', exW);
     const lastEl = w.parentElement.querySelector('.last');
     lastEl.innerHTML = `Lần trước: <b>${exW[id]}kg</b>`;
-    if(prev && +w.value > prev) toast(`💪 +${(+w.value - prev).toFixed(1).replace('.0','')}kg so với lần trước!`);
+    if(prev != null && +w.value > prev) toast(`💪 +${(+w.value - prev).toFixed(1).replace('.0','')}kg so với lần trước!`);
     else toast('Đã lưu mức tạ ' + w.value + 'kg');
     w.value = '';
   }
@@ -3134,7 +3275,10 @@ function renderPlan(){
     <div class="card"><h3><span class="hic" style="color:var(--ink-2)">${ico('calendar',15)}</span>Các tuần trước</h3>
       <div style="display:flex;gap:6px;align-items:flex-end;height:64px;margin-top:8px">
         ${histKeys.map(k=>{
-          const pct = Math.min(100, weekHist[k]/totalEx()*100);
+          const h = weekHist[k];
+          const done = typeof h === 'number' ? h : (h && h.done) || 0;
+          const total = (h && typeof h === 'object' && h.total) || totalEx();
+          const pct = total ? Math.min(100, done/total*100) : 0;
           return `<div style="flex:1;text-align:center">
             <div style="height:48px;display:flex;align-items:flex-end">
               <div style="width:100%;border-radius:5px 5px 2px 2px;background:${pct>=100?'var(--accent)':'var(--surface-3)'};height:${Math.max(6,pct*0.48)}px"></div>
@@ -3410,12 +3554,12 @@ document.addEventListener('change', e=>{
     fr.onload = ()=>{
       try{
         const d = JSON.parse(fr.result);
-        if(d.profile) { profile = Object.assign(profile, d.profile); store.set('profile', profile); }
-        if(d.checks)  { checks = d.checks; store.set('checks', checks); }
+        if(d.profile) { profile = sanitizeProfile(Object.assign({}, profile, d.profile)); store.set('profile', profile); }
+        if(d.checks && typeof d.checks === 'object'){ checks = {week: String(d.checks.week||''), done: (d.checks.done && typeof d.checks.done==='object') ? d.checks.done : {}}; store.set('checks', checks); }
         if(d.exw || d.exW){ exW = d.exw || d.exW; store.set('exw', exW); }
-        if(d.bodylog) { bodylog = d.bodylog; store.set('bodylog', bodylog); }
-        if(d.history) { weekHist = d.history; store.set('history', weekHist); }
-        if(Array.isArray(d.members)){ members = d.members; saveMembers(); }
+        if(Array.isArray(d.bodylog)) { bodylog = d.bodylog.filter(x=>x && Number.isFinite(+x.w)); store.set('bodylog', bodylog); }
+        if(d.history && typeof d.history === 'object') { weekHist = d.history; store.set('history', weekHist); }
+        if(Array.isArray(d.members)){ members = d.members.map(m=>Object.assign({}, m, sanitizeProfile(m))); saveMembers(); }
         if(typeof d.me === 'string'){ meId = d.me; store.set('me', meId); }
         renderAll(); toast('⬆ Đã nhập dữ liệu');
       }catch(err){ toast('File không hợp lệ'); }
@@ -3601,18 +3745,17 @@ function renderAll(){
   renderTV();
   $$('.section').forEach(s=>s.classList.toggle('active', s.id === 'sec-'+curTab));
 }
-$('#brandRow').innerHTML = logoHtml(44) + `<div class="bt"><b>L&nbsp;GYM</b><span>Beginner Plan</span></div>`;
+$('#brandRow').innerHTML = logoHtml(44) + `<div class="bt"><b>L&nbsp;GYM</b><span>Beginner Plan</span></div>` + gymInfoHtml();
 $('#btnGear').innerHTML = ico('sliders',19);
 $('#tmrLogo').innerHTML = logoHtml(46);
 renderAll();
 if(!store.get('seen', false)){ store.set('seen', true); setTimeout(openModal, 600); }
 
-/* ================= NỀN MATRIX (chỉ desktop, tự tắt khi ẩn tab / reduced-motion) ================= */
+/* ================= NỀN MATRIX (mọi kích thước màn hình, tự tắt khi ẩn tab / reduced-motion) ================= */
 (function(){
   const cv = document.getElementById('bgfx');
   if(!cv || !cv.getContext) return;
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const mqDesk = window.matchMedia('(min-width: 1000px)');
   const g = cv.getContext('2d');
   let W, H, raf = null, tick = 0, nodes = [], running = false;
   const NODE_COLS = ['217,247,74','61,165,255','180,92,255'];
@@ -3673,7 +3816,7 @@ if(!store.get('seen', false)){ store.set('seen', true); setTimeout(openModal, 60
   }
   function start(){ if(running || reduce) return; running = true; cv.style.display = 'block'; resize(); frame(); }
   function stop(){ if(!running) return; running = false; cancelAnimationFrame(raf); cv.style.display = 'none'; }
-  function decide(){ (mqDesk.matches && !document.hidden) ? start() : stop(); }
+  function decide(){ (!document.hidden) ? start() : stop(); }
   window.addEventListener('resize', ()=>{ if(running) resize(); decide(); });
   document.addEventListener('visibilitychange', decide);
   if(mqDesk.addEventListener) mqDesk.addEventListener('change', decide); else if(mqDesk.addListener) mqDesk.addListener(decide);
