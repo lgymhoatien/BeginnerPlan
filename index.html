@@ -22,6 +22,34 @@
 
 
 
+<link rel="manifest" href="manifest.webmanifest">
+
+
+
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+
+
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+
+<meta name="apple-mobile-web-app-title" content="L GYM">
+
+
+
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+
+
+<meta name="mobile-web-app-capable" content="yes">
+
+
+
+<meta name="application-name" content="L GYM">
+
+
+
 <title>Beginner Plan - Những bài tập dành cho người mới.</title>
 
 
@@ -494,6 +522,34 @@ input,select{font:inherit}
 
 
 
+.btn-install{
+
+  position:absolute;top:18px;right:62px;width:42px;height:42px;border-radius:14px;
+
+  background:linear-gradient(180deg,var(--surface-3),var(--surface));border:1px solid var(--border);
+
+  display:grid;place-items:center;color:var(--ink-2);
+
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05), 0 4px 12px rgba(0,0,0,.3);
+
+  transition:transform .2s, color .2s
+
+}
+
+
+
+.btn-install:active{transform:scale(.92)}
+
+
+
+.btn-install:hover{color:var(--accent)}
+
+
+
+.btn-install.hidden,.side-install.hidden{display:none!important}
+
+
+
 /* ============ STAT TILES ============ */
 
 
@@ -558,7 +614,15 @@ input,select{font:inherit}
 
 
 
+.side-actions{display:none}
+
+
+
 .side-settings{display:none}
+
+
+
+.side-install{display:none}
 
 
 
@@ -1650,7 +1714,11 @@ input,select{font:inherit}
 
 
 
-.supgrid{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+.supgrid{display:grid;grid-template-columns:1fr;gap:8px;margin-top:10px}
+
+
+
+@media (min-width:720px){.supgrid{grid-template-columns:1fr 1fr}}
 
 
 
@@ -1658,7 +1726,7 @@ input,select{font:inherit}
 
 
 
-  background:var(--surface-2);border:1px solid var(--border-soft);border-radius:12px;padding:11px 12px
+  background:var(--surface-2);border:1px solid var(--border-soft);border-radius:12px;padding:0;overflow:hidden
 
 
 
@@ -1666,15 +1734,32 @@ input,select{font:inherit}
 
 
 
-.supcard .suphead{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin-bottom:6px}
+.supcard summary.suphead{
+  display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;
+  padding:11px 12px;cursor:pointer;list-style:none;user-select:none
+}
 
 
 
-.supcard .suphead b{font-size:.88rem;color:var(--ink)}
+.supcard summary.suphead::-webkit-details-marker{display:none}
 
 
 
-.supcard .supen{font-size:.68rem;color:var(--ink-3);font-weight:600}
+.supcard summary.suphead::after{
+  content:"+";margin-left:auto;font-weight:800;color:var(--ink-3);font-size:1rem;line-height:1
+}
+
+
+
+.supcard[open] summary.suphead::after{content:"–"}
+
+
+
+.supcard .suphead b{font-size:.86rem;color:var(--ink)}
+
+
+
+.supcard .supen{font-size:.66rem;color:var(--ink-3);font-weight:600}
 
 
 
@@ -1706,11 +1791,15 @@ input,select{font:inherit}
 
 
 
-.supmeta{display:grid;gap:5px;margin-top:6px;font-size:.76rem;color:var(--ink-2);line-height:1.5}
+.supbody{padding:0 12px 11px;border-top:1px dashed var(--border-soft)}
 
 
 
-.supmeta i{font-style:normal;color:var(--ink-3);font-weight:700;font-size:.62rem;letter-spacing:.05em;text-transform:uppercase;margin-right:5px}
+.supmeta{display:grid;gap:5px;margin-top:8px;font-size:.74rem;color:var(--ink-2);line-height:1.45}
+
+
+
+.supmeta i{font-style:normal;color:var(--ink-3);font-weight:700;font-size:.6rem;letter-spacing:.05em;text-transform:uppercase;margin-right:5px}
 
 
 
@@ -1718,7 +1807,7 @@ input,select{font:inherit}
 
 
 
-  margin-top:10px;padding:10px 11px;border-radius:11px;
+  margin-top:12px;padding:10px 11px;border-radius:11px;
 
 
 
@@ -1746,7 +1835,7 @@ input,select{font:inherit}
 
 
 
-  display:grid;grid-template-columns:88px 1fr;gap:8px;padding:8px 0;
+  display:grid;grid-template-columns:min(110px,34%) 1fr;gap:8px;padding:8px 0;
 
 
 
@@ -1767,6 +1856,32 @@ input,select{font:inherit}
 
 
 .supslot .d{color:var(--ink-2);line-height:1.45}
+
+
+
+.an-label{
+  margin:22px 2px 2px;font-size:.68rem;font-weight:800;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3)
+}
+
+
+
+.an-grid{display:grid;grid-template-columns:1fr;gap:0 14px}
+
+
+
+.an-grid > .card{margin-top:12px}
+
+
+
+.an-grid .an-span{grid-column:1 / -1}
+
+
+
+@media (min-width:900px){
+  .an-grid{grid-template-columns:1fr 1fr}
+  .an-grid.an-3{grid-template-columns:1fr 1fr 1fr}
+}
 
 
 
@@ -2306,6 +2421,66 @@ input,select{font:inherit}
 
 
 
+.install-pills{display:flex;gap:8px;margin-bottom:14px}
+
+
+
+.install-pill{
+
+  flex:1;border:1px solid var(--border);background:var(--surface-2);color:var(--ink-2);
+
+  border-radius:12px;padding:10px 8px;font-size:.78rem;font-weight:700;cursor:pointer
+
+}
+
+
+
+.install-pill.on{border-color:var(--accent);color:var(--accent);background:rgba(217,247,74,.08)}
+
+
+
+.install-panel{display:none}
+
+
+
+.install-panel.on{display:block}
+
+
+
+.install-steps{margin:0 0 14px 18px;font-size:.82rem;color:var(--ink-2);line-height:1.65}
+
+
+
+.install-steps li{margin:6px 0}
+
+
+
+.install-steps b{color:var(--ink)}
+
+
+
+.install-note{
+
+  margin:0 0 14px;padding:10px 12px;border-radius:12px;font-size:.78rem;line-height:1.55;
+
+  background:rgba(61,165,255,.08);border:1px solid rgba(61,165,255,.22);color:var(--ink-2)
+
+}
+
+
+
+.install-note b{color:var(--pull)}
+
+
+
+#btnInstallNative{width:100%;margin-bottom:0}
+
+
+
+#btnInstallNative.waiting{background:var(--surface-3);color:var(--ink-2);box-shadow:none;border:1px solid var(--border)}
+
+
+
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
 
 
@@ -2682,7 +2857,23 @@ input,select{font:inherit}
 
 
 
-  .side-settings{display:flex;border-top:1px solid var(--border-soft);border-radius:14px;padding-top:13px}
+  .side-settings{display:flex;border-top:none;border-radius:14px;padding-top:0}
+
+
+
+  .side-install{display:flex}
+
+
+
+  .side-actions{display:flex;flex-direction:column;gap:2px;margin-top:auto;padding-top:13px;border-top:1px solid var(--border-soft)}
+
+
+
+  .btn-gear{display:none}
+
+
+
+  .btn-install{display:none}
 
 
 
@@ -2763,6 +2954,10 @@ input,select{font:inherit}
 
 
     <div class="hero-notes" id="heroNotes"></div>
+
+
+
+    <button class="btn-install" id="btnInstallMob" aria-label="Thêm vào màn hình chính"></button>
 
 
 
@@ -3043,6 +3238,130 @@ input,select{font:inherit}
 
 
       <button class="btn" id="btnSave">Lưu &amp; tính lại kế hoạch</button>
+
+
+
+    </div>
+
+
+
+  </div>
+
+
+
+  <div class="modal" id="modalInstall">
+
+
+
+    <div class="sheet" role="dialog" aria-label="Thêm vào màn hình chính">
+
+
+
+      <h2>Thêm vào màn hình chính 📲</h2>
+
+
+
+      <div class="sub">Mở nhanh như app — hồ sơ, tiến độ và thành viên vẫn lưu trên máy bạn (localStorage).</div>
+
+
+
+      <div class="install-pills">
+
+
+
+        <button type="button" class="install-pill" data-install-tab="android">Android</button>
+
+
+
+        <button type="button" class="install-pill" data-install-tab="ios">iPhone / iPad</button>
+
+
+
+      </div>
+
+
+
+      <div class="install-panel" id="installAndroid">
+
+
+
+        <button type="button" class="btn" id="btnInstallNative">Cài L GYM ngay</button>
+
+
+
+        <div class="install-note" id="installNativeHint" style="margin-top:10px;margin-bottom:12px"></div>
+
+
+
+        <ol class="install-steps">
+
+
+
+          <li>Mở trang này bằng <b>Chrome</b> (hoặc Edge / Samsung Internet) — không dùng Zalo / Facebook in-app.</li>
+
+
+
+          <li>Bấm nút <b>Cài L GYM ngay</b> ở trên. Nếu không cài được, bấm menu <b>⋮</b> góc phải trình duyệt.</li>
+
+
+
+          <li>Chọn <b>Cài đặt ứng dụng</b> / <b>Thêm vào Màn hình chính</b> / <b>Add to Home screen</b>.</li>
+
+
+
+          <li>Xác nhận — icon <b>L GYM</b> sẽ xuất hiện trên màn hình chính.</li>
+
+
+
+        </ol>
+
+
+
+        <div class="install-note"><b>Mẹo:</b> Lần sau chỉ cần bấm icon — không cần gõ link GitHub Pages nữa.</div>
+
+
+
+      </div>
+
+
+
+      <div class="install-panel" id="installIOS">
+
+
+
+        <ol class="install-steps">
+
+
+
+          <li>Mở trang này bằng <b>Safari</b> (iPhone/iPad không hỗ trợ cài từ Chrome).</li>
+
+
+
+          <li>Bấm nút <b>Chia sẻ</b> <span style="opacity:.85">(hình vuông có mũi tên lên)</span> ở thanh dưới.</li>
+
+
+
+          <li>Kéo xuống chọn <b>Thêm vào Màn hình chính</b> / <b>Add to Home Screen</b>.</li>
+
+
+
+          <li>Đặt tên <b>L GYM</b> → bấm <b>Thêm</b>.</li>
+
+
+
+        </ol>
+
+
+
+        <div class="install-note"><b>Lưu ý iOS:</b> Apple không cho popup cài tự động — bạn thao tác thủ công một lần duy nhất.</div>
+
+
+
+      </div>
+
+
+
+      <button type="button" class="btn ghost" id="btnCloseInstall">Đã hiểu</button>
 
 
 
@@ -12866,7 +13185,11 @@ const ICONS = {
 
 
 
-  check:'<polyline points="20 6 9 17 4 12"/>'
+  check:'<polyline points="20 6 9 17 4 12"/>',
+
+
+
+  smartphone:'<rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/>'
 
 
 
@@ -13118,7 +13441,7 @@ const store = {
 
 
 
-const GEMINI_DEFAULT_KEY = 'AQ.Ab8RN6K4TedbBBTAMfmi3wI1auHlzffli5xA5OHLMPHjLB0n7w';
+const GEMINI_DEFAULT_KEY = 'AQ.Ab8RN6I1xLQkAJEhIweSpwy7ABRh_HZWL0Y8a1jx_fdkc17q1w';
 
 
 
@@ -13371,10 +13694,11 @@ async function geminiGenerate(prompt){
 
 function buildAiSamplePrompt(p, c){
   const sex = p.s==='f' ? 'Nữ' : 'Nam';
+  const customKcal = document.getElementById('customKcal') ? (parseInt(document.getElementById('customKcal').value) || c.kcal) : c.kcal;
   return [
     'Bạn là HLV dinh dưỡng thể thao Việt Nam.',
     'Tạo THỰC ĐƠN MẪU 1 NGÀY (khẩu phần VN) KHÁC mẫu cũ, đa dạng món.',
-    'BẮT BUỘC giữ đúng tổng ngày: '+c.kcal+' kcal, protein '+c.pro+'g, carb '+c.carb+'g, fat '+c.fat+'g.',
+    'BẮT BUỘC giữ đúng tổng ngày: '+customKcal+' kcal, protein '+c.pro+'g, carb '+c.carb+'g, fat '+c.fat+'g.',
     'Hồ sơ: '+sex+' châu Á/VN, '+p.w+' kg, '+p.h+' cm, '+p.a+' tuổi, giờ tập '+p.time+', mục tiêu '+c.goal.nameVi+'.',
     'Dùng món Việt quen thuộc (cơm, ức gà, cá, trứng, đậu hũ, rau, khoai lang, sữa chua, xôi...).',
     'Đúng 4 bữa với when: "Sau tập / sáng", "Trưa", "Xế", "Tối".',
@@ -13385,10 +13709,11 @@ function buildAiSamplePrompt(p, c){
 }
 function buildAiSchedulePrompt(p, c){
   const sex = p.s==='f' ? 'Nữ' : 'Nam';
+  const customKcal = document.getElementById('customKcal') ? (parseInt(document.getElementById('customKcal').value) || c.kcal) : c.kcal;
   return [
     'Bạn là HLV dinh dưỡng thể thao Việt Nam.',
     'Tạo LỊCH ĂN trong ngày (timeline) mới, tiếng Việt CÓ DẤU.',
-    'BẮT BUỘC giữ đúng tổng ngày: '+c.kcal+' kcal, protein '+c.pro+'g, carb '+c.carb+'g, fat '+c.fat+'g.',
+    'BẮT BUỘC giữ đúng tổng ngày: '+customKcal+' kcal, protein '+c.pro+'g, carb '+c.carb+'g, fat '+c.fat+'g.',
     'Hồ sơ: '+sex+' châu Á/VN, giờ tập '+p.time+'. Xoay lịch quanh giờ tập này.',
     '5–6 mốc: time dạng "8:00 – 8:30", title có emoji nhẹ, detail món VN cụ thể, tag ngắn (Trước tập / Sau tập / Bữa chính / Snack / Optional).',
     'CHỈ trả ĐÚNG 1 object JSON, không markdown, không chữ thừa trước/sau.',
@@ -14239,7 +14564,19 @@ function renderTabs(){
 
 
 
-    + `<button class="tab side-settings" data-open-settings="1">${ico('sliders',17)}<span class="lbld">Cài đặt</span></button>`;
+    + `<div class="side-actions">`
+
+
+
+    + `<button class="tab side-settings" data-open-settings="1">${ico('sliders',17)}<span class="lbld">Cài đặt</span></button>`
+
+
+
+    + `<button class="tab side-install" data-open-install="1">${ico('smartphone',17)}<span class="lbld">Thêm vào màn hình chính</span></button>`
+
+
+
+    + `</div>`;
 
 
 
@@ -14260,6 +14597,10 @@ function renderTabs(){
 
 
   updateSideStats();
+
+
+
+  updateInstallUi();
 
 
 
@@ -14408,6 +14749,10 @@ document.addEventListener('click', e=>{
 
 
   if(e.target.closest('[data-open-settings]')) openModal();
+
+
+
+  if(e.target.closest('[data-open-install]')) openInstallModal();
 
 
 
@@ -15688,18 +16033,10 @@ document.addEventListener('change', e=>{
 
 
 function renderAn(){
-
-
-
   const c = calc();
-
-
-
   const deep = nutritionDeep(profile, c);
-
-
-
   const mealPack = buildMeals(profile, c);
+  const customKcal = document.getElementById('customKcal') ? document.getElementById('customKcal').value : c.kcal;
 
 
 
@@ -15851,11 +16188,11 @@ function renderAn(){
 
 
 
-    <div class="supcard">
+    <details class="supcard">
 
 
 
-      <div class="suphead">
+      <summary class="suphead">
 
 
 
@@ -15871,31 +16208,39 @@ function renderAn(){
 
 
 
+      </summary>
+
+
+
+      <div class="supbody">
+
+
+
+        <div class="supmeta"><div><i>Tác dụng</i>${esc(s.effect)}</div></div>
+
+
+
+        <div class="supmeta"><div><i>Liều</i>${esc(s.dose)}</div></div>
+
+
+
+        <div class="supmeta"><div><i>Thời điểm</i>${esc(s.when)}</div></div>
+
+
+
+        <div class="supmeta"><div><i>Uống chung?</i>${esc(s.stack)}</div></div>
+
+
+
+        <div class="supmeta"><div><i>${sexLabel}</i>${esc(s.sex)}</div></div>
+
+
+
       </div>
 
 
 
-      <div class="supmeta"><div><i>Tác dụng</i>${esc(s.effect)}</div></div>
-
-
-
-      <div class="supmeta"><div><i>Liều</i>${esc(s.dose)}</div></div>
-
-
-
-      <div class="supmeta"><div><i>Thời điểm</i>${esc(s.when)}</div></div>
-
-
-
-      <div class="supmeta"><div><i>Uống chung?</i>${esc(s.stack)}</div></div>
-
-
-
-      <div class="supmeta"><div><i>${sexLabel}</i>${esc(s.sex)}</div></div>
-
-
-
-    </div>`).join('');
+    </details>`).join('');
 
 
 
@@ -15951,7 +16296,15 @@ function renderAn(){
 
 
 
-    <div class="cardcols"><div class="card">
+    <div class="an-label">Tính toán &amp; lịch ăn</div>
+
+
+
+    <div class="an-grid">
+
+
+
+    <div class="card">
 
 
 
@@ -16051,7 +16404,7 @@ function renderAn(){
 
       </div>
 
-      <p>Gợi ý gần khớp <b>${c.kcal.toLocaleString('vi-VN')} kcal</b> — chỉnh cơm/dầu trước, giữ protein ổn định.</p>
+      <p style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">Gợi ý gần khớp <input type="number" id="customKcal" value="${customKcal}" style="width:70px;padding:4px;border-radius:4px;border:1px solid var(--border);background:var(--bg-2);color:var(--text);font-weight:bold;text-align:center" /> <b>kcal</b> — chỉnh cơm/dầu trước, giữ protein ổn định.</p>
 
 
 
@@ -16086,6 +16439,18 @@ function renderAn(){
 
 
     </div>
+
+
+
+    </div>
+
+
+
+    <div class="an-label">Ngày tập · nước · cardio · vi chất</div>
+
+
+
+    <div class="an-grid an-3">
 
 
 
@@ -16145,7 +16510,7 @@ function renderAn(){
 
 
 
-    <div class="card">
+    <div class="card an-span">
 
 
 
@@ -16161,7 +16526,19 @@ function renderAn(){
 
 
 
-    <div class="card">
+    </div>
+
+
+
+    <div class="an-label">Thực phẩm bổ sung</div>
+
+
+
+    <div class="an-grid">
+
+
+
+    <div class="card an-span">
 
 
 
@@ -16169,7 +16546,7 @@ function renderAn(){
 
 
 
-      <p>Ưu tiên <b>ăn đủ</b> trước. Dưới đây là các TPBS người tập tạ chuyên nghiệp dùng nhiều nhất — đã lọc theo bằng chứng (ISSN / GSSI / Examine), chỉnh theo cân <b>${profile.w} kg</b> và giới <b>${sexLabel}</b>.</p>
+      <p>Ưu tiên <b>ăn đủ</b> trước. Bấm từng mục để xem liều / thời điểm — đã lọc theo ISSN / GSSI / Examine, chỉnh theo cân <b>${profile.w} kg</b> và giới <b>${sexLabel}</b>.</p>
 
 
 
@@ -16177,11 +16554,7 @@ function renderAn(){
 
 
 
-      <div class="supgrid">${suppHtml}</div>
-
-
-
-      <div class="supstack">
+      <div class="supstack" style="margin-top:0;margin-bottom:12px">
 
 
 
@@ -16194,6 +16567,10 @@ function renderAn(){
 
 
       </div>
+
+
+
+      <div class="supgrid">${suppHtml}</div>
 
 
 
@@ -16214,6 +16591,18 @@ function renderAn(){
 
 
     </div>
+
+
+
+    </div>
+
+
+
+    <div class="an-label">Thực phẩm &amp; lưu ý</div>
+
+
+
+    <div class="an-grid">
 
 
 
@@ -16249,7 +16638,7 @@ function renderAn(){
 
 
 
-    <div class="card">
+    <div class="card an-span">
 
 
 
@@ -18287,6 +18676,306 @@ document.addEventListener('click', async e=>{
 
 
 
+/* ================= ADD TO HOME SCREEN (PWA) ================= */
+
+
+
+let deferredInstallPrompt = null;
+
+
+
+const isIOSDevice = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+
+
+function isStandaloneApp(){
+
+
+
+  return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+
+
+
+}
+
+
+
+function updateInstallUi(){
+
+
+
+  const hide = isStandaloneApp();
+
+
+
+  const mob = $('#btnInstallMob');
+
+
+
+  if(mob) mob.classList.toggle('hidden', hide);
+
+
+
+  const side = document.querySelector('.side-install');
+
+
+
+  if(side) side.classList.toggle('hidden', hide);
+
+
+
+}
+
+
+
+function setInstallTab(tab){
+
+
+
+  $$('.install-pill').forEach(p=>p.classList.toggle('on', p.dataset.installTab === tab));
+
+
+
+  $('#installAndroid').classList.toggle('on', tab === 'android');
+
+
+
+  $('#installIOS').classList.toggle('on', tab === 'ios');
+
+
+
+}
+
+
+
+function syncInstallButton(){
+
+
+
+  const nativeBtn = $('#btnInstallNative');
+
+
+
+  const hint = $('#installNativeHint');
+
+
+
+  if(!nativeBtn) return;
+
+
+
+  if(isIOSDevice){
+
+
+
+    nativeBtn.style.display = 'none';
+
+
+
+    if(hint) hint.style.display = 'none';
+
+
+
+    return;
+
+
+
+  }
+
+
+
+  nativeBtn.style.display = 'block';
+
+
+
+  if(deferredInstallPrompt){
+
+
+
+    nativeBtn.textContent = 'Cài L GYM ngay';
+
+
+
+    nativeBtn.classList.remove('waiting');
+
+
+
+    if(hint) hint.innerHTML = '<b>Sẵn sàng:</b> Bấm nút xanh để Chrome cài app lên màn hình chính.';
+
+
+
+  }else{
+
+
+
+    nativeBtn.textContent = 'Hướng dẫn cài thủ công';
+
+
+
+    nativeBtn.classList.add('waiting');
+
+
+
+    if(hint) hint.innerHTML = '<b>Chrome chưa bật cài tự động</b> — thường do chưa up đủ <code>manifest</code> + <code>sw.js</code> lên GitHub, hoặc đang mở trong trình duyệt Zalo/Facebook. Bấm nút trên để xem cách cài qua menu <b>⋮</b>.';
+
+
+
+  }
+
+
+
+}
+
+
+
+function openInstallModal(){
+
+
+
+  setInstallTab(isIOSDevice ? 'ios' : 'android');
+
+
+
+  syncInstallButton();
+
+
+
+  $('#modalInstall').classList.add('open');
+
+
+
+}
+
+
+
+function closeInstallModal(){
+
+
+
+  $('#modalInstall').classList.remove('open');
+
+
+
+}
+
+
+
+window.addEventListener('beforeinstallprompt', e=>{
+
+
+
+  e.preventDefault();
+
+
+
+  deferredInstallPrompt = e;
+
+
+
+  updateInstallUi();
+
+
+
+  syncInstallButton();
+
+
+
+});
+
+
+
+window.addEventListener('appinstalled', ()=>{
+
+
+
+  deferredInstallPrompt = null;
+
+
+
+  updateInstallUi();
+
+
+
+  closeInstallModal();
+
+
+
+  toast('Đã thêm L GYM vào màn hình chính 🎉');
+
+
+
+});
+
+
+
+$('#btnInstallMob').addEventListener('click', openInstallModal);
+
+
+
+$('#btnCloseInstall').addEventListener('click', closeInstallModal);
+
+
+
+$('#modalInstall').addEventListener('click', e=>{ if(e.target.id === 'modalInstall') closeInstallModal(); });
+
+
+
+$$('.install-pill').forEach(p=> p.addEventListener('click', ()=> setInstallTab(p.dataset.installTab)));
+
+
+
+$('#btnInstallNative').addEventListener('click', async ()=>{
+
+
+
+  if(deferredInstallPrompt){
+
+
+
+    deferredInstallPrompt.prompt();
+
+
+
+    try{ await deferredInstallPrompt.userChoice; }catch(err){}
+
+
+
+    deferredInstallPrompt = null;
+
+
+
+    syncInstallButton();
+
+
+
+    return;
+
+
+
+  }
+
+
+
+  toast('Bấm ⋮ góc phải Chrome → Cài đặt ứng dụng (hoặc Thêm vào Màn hình chính)');
+
+
+
+});
+
+
+
+if('serviceWorker' in navigator){
+
+
+
+  window.addEventListener('load', ()=>{ navigator.serviceWorker.register('./sw.js').catch(()=>{}); });
+
+
+
+}
+
+
+
 /* ================= SETTINGS MODAL ================= */
 
 
@@ -18578,6 +19267,18 @@ $('#brandRow').innerHTML = logoHtml(44) + `<div class="bt"><b>L&nbsp;GYM</b><spa
 
 
 $('#btnGear').innerHTML = ico('sliders',19);
+
+
+
+$('#btnInstallMob').innerHTML = ico('smartphone',19);
+
+
+
+updateInstallUi();
+
+
+
+syncInstallButton();
 
 
 
