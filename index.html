@@ -13239,6 +13239,24 @@ function extractJsonObject(raw){
   }
   throw new Error('JSON Gemini bị cắt / không đủ ngoặc');
 }
+function geminiFriendlyError(err){
+  const raw = String((err && err.message) || err || '').trim();
+  const low = raw.toLowerCase();
+  if(!raw) return 'Không gọi được Gemini. Vào Cài đặt và nhập API key Gemini.';
+  if(/api key|gemini api key|chua co gemini|chưa có gemini/i.test(raw))
+    return 'Chưa có API key Gemini. Vào Cài đặt → nhập API key Gemini → Lưu, rồi bấm lại.';
+  if(/invalid authentication|unauthenticated|401|oauth 2|login cookie|permission_denied|permission denied|api_key_invalid|api key not valid|expired|disabled|deleted|bound service account/i.test(low))
+    return 'API key Gemini không hợp lệ hoặc đã hết hạn. Vào Cài đặt → nhập lại API key Gemini mới → Lưu.';
+  if(/429|quota|rate limit|resource_exhausted/i.test(low))
+    return 'Gemini đang hết hạn mức (quota). Đợi vài phút hoặc đổi key/project khác trong Cài đặt.';
+  if(/failed to fetch|networkerror|load failed|network/i.test(low))
+    return 'Mất kết nối mạng khi gọi Gemini. Kiểm tra Wi‑Fi/4G rồi thử lại.';
+  if(/json/i.test(low))
+    return 'Gemini trả dữ liệu lỗi. Bấm lại lần nữa; nếu vẫn lỗi hãy thử key khác trong Cài đặt.';
+  const short = raw.length > 70 ? raw.slice(0, 70) + '…' : raw;
+  return short + ' — Kiểm tra API key Gemini trong Cài đặt.';
+}
+
 async function geminiGenerate(prompt){
 
 
@@ -18255,9 +18273,7 @@ document.addEventListener('click', async e=>{
 
     console.error(err);
 
-    const msg = (err && err.message) ? err.message : 'Lỗi Gemini';
-
-    toast(msg.length>90 ? msg.slice(0,90)+'...' : msg);
+    toast(geminiFriendlyError(err));
 
   }finally{
 
